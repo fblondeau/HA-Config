@@ -1,0 +1,92 @@
+homeassistant:
+#  customize_glob:
+#    'sensor.system_*':
+#      tag: system
+
+  group:
+    system:
+      name: System
+      icon: mdi:monitor
+      view: true
+      entities:
+        - sensor.system_date
+        - sensor.system_date__time
+        - sensor.system_disk_use_percent_home
+        - sensor.system_internet_time
+        - sensor.system_ipv4_address_eth0
+        - sensor.system_ipv6_address_eth0
+        - sensor.system_load_15m
+        - sensor.system_load_1m
+        - sensor.system_load_5m
+        - sensor.system_memory_free
+        - sensor.system_network_in_eth0
+        - sensor.system_network_out_eth0
+        - sensor.system_time
+        - sensor.system_time__date
+        - sensor.system_time_utc
+
+sensor:
+  - platform: systemmonitor
+    name: System Monitor
+    entity_namespace: system
+    resources:
+      - type: disk_use_percent
+        arg: /home
+      - type: memory_free
+      - type: network_in
+        arg: eth0
+      - type: network_out
+        arg: eth0
+      - type: load_1m
+      - type: load_5m
+      - type: load_15m
+      - type: ipv4_address
+        arg: eth0
+      - type: ipv6_address
+        arg: eth0
+  - platform: time_date
+    name: Time and Date
+    entity_namespace: system
+    display_options:
+      - 'time'
+      - 'date'
+      - 'date_time'
+      - 'time_date'
+      - 'time_utc'
+      - 'beat'
+
+
+switch:
+  - platform: wake_on_lan
+    name: NUC Masters
+    mac_address: !secret macAddNuc
+    broadcast_address: !secret hassioIP
+
+
+
+
+
+
+
+#
+# sensor:
+#   - platform: synologydsm
+#     host: IP_ADDRESS_OF_SYNOLOGY_NAS
+#     username: YOUR_USERNAME
+#     password: YOUR_PASSWORD
+#     monitored_conditions:
+#       - cpu_total_load
+#       - memory_real_usage
+#       - network_up
+
+
+# https://docs.netdata.cloud
+
+#  - platform: hydroquebec
+#    username: MYUSERNAME
+#    password: MYPASSWORD
+#    contract: '123456789'
+#    monitored_variables:
+#     - period_total_bill
+#     - period_length
+#     - period_total_days

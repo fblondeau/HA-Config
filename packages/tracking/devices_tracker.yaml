@@ -1,0 +1,35 @@
+# homeassistant:
+#   customize_glob:
+#     'device_tracker.TrkPkg_*':
+#       tag: trkpkg
+#
+# # Enables a map showing the location of tracked devices
+# map:
+#   entity_namespace: trkpkg
+#
+ #device_tracker:
+
+#   - platform: tile
+#     name: TileInc
+#     entity_namespace: trkpkg
+#     username: !secret usernameTile
+#     password: !secret passwordTile
+#
+#   - platform: mikrotik
+#     name: router
+#     entity_namespace: trkpkg
+#     interval_seconds: 30
+#     host: !secret routerHost
+#     username: hass
+#     password: !secret mikro
+#     tag_device_type: IoT
+#
+#   - platform: nmap_tracker
+#     name: Nmap
+#     entity_namespace: trkpkg
+#     interval_seconds: 50
+#     hosts: !secret trackingHosts
+#     excude: !secret hassioIP
+#     scan_options: " --privileged -F -n --host-timeout 5s "
+#     home_interval: 60
+#     consider_home: 180

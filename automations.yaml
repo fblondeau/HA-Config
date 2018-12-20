@@ -1,0 +1,19 @@
+  - alias: test at 2:30am
+    trigger:
+      platform: time
+      at: '2:30:00'
+    action:
+      service: zwave.test_network
+
+  - alias: heal at 2:32am
+    trigger:
+      platform: time
+      at: '2:32:00'
+    action:
+      service: zwave.heal_network
+
+# action:
+#  - service: remote.turn_on
+#    entity_id: remote.bed_room_hub
+#    data:
+#       activity: "Watch TV"

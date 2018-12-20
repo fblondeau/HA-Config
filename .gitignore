@@ -1,0 +1,5 @@
+.DS_*
+toClean/*
+known_devices.yaml
+options.xml
+secrets.yaml

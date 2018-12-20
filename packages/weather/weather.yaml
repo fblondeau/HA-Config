@@ -1,0 +1,50 @@
+homeassistant:
+#  customize_glob:
+#    'sensor.weatpkg_*':
+#      tag: weather
+#    'weather.weatpkg_*':
+#      tag: weather
+sensor:
+  - platform: moon
+    name: Moon
+    entity_namespace: weatpkg
+  - platform: openweathermap
+    name: openWMap
+    api_key: !secret oWMApiKey
+    entity_namespace: weatpkg
+    monitored_conditions:
+      - 'weather'
+      - 'temperature'
+      - 'wind_speed'
+      - 'wind_bearing'
+      - 'humidity'
+      - 'pressure'
+      - 'clouds'
+      - 'rain'
+      - 'snow'
+  - platform: darksky
+    name: Darksky
+    entity_namespace: weatpkg
+    api_key: !secret darkSkyApiKey
+    forcast:
+      - 4
+    monitored_conditions:
+    - 'summary'
+    - 'icon'
+    - 'nearest_storm_distance'
+
+weather:
+  - platform: openweathermap
+    api_key: !secret oWMApiKey
+    mode: daily
+    name: openWMap
+    entity_namespace: weatpkg
+  - platform: darksky
+    api_key: !secret darkSkyApiKey
+    name: Darksky
+    entity_namespace: weatpkg
+
+# Track the sun
+sun:
+  name: Sun Tracker
+  entity_namespace: weatpkg

@@ -1,0 +1,50 @@
+  bathroom:
+    entities:
+    - light.bathroom_sink_top
+    - light.shower_top
+    - switch.bathroom
+  masters:
+    entities:
+    - light.chambre_a_coucher
+    - light.bloom
+    - media_player.bed_room
+    - media_player.tv_2
+    - sensor.master_thermostat
+    - climate.master_thermostat
+  office:
+    entities:
+    - light.bureau
+    - media_player.tv_office
+  dinning Room:
+    entities:
+    - light.leviton_decora_smart_dimmer
+    - light.salle_a_manger
+  Living Room:
+    entities:
+    - switch.leviton_decora_smart_switch
+    - media_player.living_room
+    - remote.mediasctrlpkg_remote_living_room
+  kitchen:
+    entities:
+    - switch.kitchen
+    - light.countertop_1
+    - light.countertop_2
+    - light.countertop_3
+    - light.kitchenmain
+  laundry:
+    entities:
+    - light.salle_de_lavage
+
+    # bedroom:
+    #     view: true
+    #     icon: mdi:bed
+    #     entities: script.getEntity
+
+
+        # data_template: >
+        #   entities:
+        #     "{%- for state in states -%}"
+        #       "{%- if state_attr(state.entity_id, 'room_tag') == 'kitchen' -%}"
+        #         - "{{ state.entity_id }}"
+        #       "{%- endif -%}"
+        #     "{%- endfor -%}"

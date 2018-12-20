@@ -1,0 +1,12 @@
+light.leviton_dz6hd1bz_decora_600w_smart_dimmer_level:
+  ignored: false
+  polling_intensity: 0
+switch.leviton_dz15s1bz_decora_smart_switch_switch:
+  ignored: false
+  polling_intensity: 0
+sensor.stelpro_stzw402_electronic_thermostat_temperature:
+  ignored: false
+  polling_intensity: 0
+climate.marster_thermostat:
+  ignored: false
+  polling_intensity: 0

@@ -1,0 +1,48 @@
+# Bathroom
+light.bathroom_sink_top:
+  friendly_name: Sink Ceilling
+  room_tag: bathroom
+
+light.shower_top:
+  friendly_name: Shower Ceilling
+  room_tag: bathroom
+
+# Master Bed
+light.bloom:
+  friendly_name: Ambiance
+  room_tag: masters
+
+light.chambre_a_coucher:
+  friendly_name: Side
+  room_tag: masters
+
+# Office
+light.bureau:
+  friendly_name: Ceilling
+  room_tag: office
+
+#kitchen
+light.countertop_1:
+  friendly_name: Spot 1
+  room_tag: kitchen
+light.countertop_2:
+  friendly_name: Spot 1
+  room_tag: kitchen
+light.countertop_3:
+  friendly_name: Spot 1
+  room_tag: kitchen
+
+ # wemo dimmer
+light.kitchen_main:
+  friendly_name: Main Lights
+  room_tag: kitchen
+
+# Dinning room
+light.leviton_decora_smart_dimmer:
+  friendly_name: Table Lights
+  room_tag: dinning
+
+#others
+light.salle_de_lavage:
+  friendly_name: Laundry Room
+  room_tag: laundry

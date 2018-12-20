@@ -1,0 +1,98 @@
+homeassistant:
+
+remote:
+  - platform: harmony
+    name: Harmony Living
+    entity_namespace: mediasctrl
+    host: !secret remoteCtrlHost
+    activity: "Watch PC"
+
+
+media_player:
+  - platform: lg_netcast
+    name: Tv Office
+    host: !secret hostTvOffice
+    access_token: !secret accTknTvOffice
+    room: Office
+  - platform: lg_netcast
+    name: Tv Masters
+    entity_namespace: mediasctrl
+    host: !secret hostTvMasters
+    access_token: !secret accTknTvMasters
+  - platform: kodi
+    name: "Living Room"
+    entity_namespace: mediasctrl
+    host: !secret hostLivingRoom
+    username: !secret usernameLivingRoom
+    password: !secret passwordLivingRoom
+  - platform: kodi
+    name: Masters
+    entity_namespace: mediasctrl
+    host: !secret hostMasters
+    username: !secret usernameMasters
+    password: !secret passwordMasters
+  - platform: plex
+    name: Plexserver
+    entity_namespace: mediasctrl
+    host: !secret hostMasters
+    include_non_clients: true
+    scan_interval: 15
+    show_all_controls: true
+    use_custom_entity_ids: true
+    use_episode_art: true
+    remove_unavailable_clients: true
+    client_remove_interval: 600
+
+
+sensor:
+  - platform: plex
+    name: plex media server
+    host: !secret hostPlexServer
+    username: !secret userNamePlexServer
+    password: !secret passwordPlexServer
+    token: !secret tokenPlexServer
+    entity_namespace: mediasctrl
+  - platform: template
+    entity_namespace: mediasctrl
+    sensors:
+      harmony_living:
+        value_template: '{{ states.remote.mediasctrl_harmony_living.attributes.current_activity }}'
+        friendly_name: 'Sensor Remote Living Room'
+
+automation:
+  - alias: "Remove Screen Saver"
+    trigger:
+      platform: state
+      entity_id: remote.harmony_living
+    condition:
+      condition: template
+      value_template: '{{ is_state(remote.mediasctrl_harmony_living) == "on" }}'
+    action:
+      service: shell_command.remove_screen_saver
+
+  # - alias: "Watch TV started from harmony hub"
+  #   trigger:
+  #     platform: state
+  #     entity_id: remote.mediasctrl_harmony_living
+  #   condition:
+  #     condition: template
+  #     value_template: '{{ trigger.to_state.attributes.current_activity == "Kodi" }}'
+  #   action:
+  #     service: input_boolean.turn_on
+  #     entity_id: input_boolean.notify
+
+
+# https://community.home-assistant.io/t/harmony-hub-best-practice/52838
+# # TV HARMONY ACTIVITY
+#  tv:
+#    value_template: "{{ is_state_attr('remote.living_room', 'current_activity', 'TV') }}"
+#    turn_on:
+#      service: remote.turn_on
+#      data:
+#        entity_id: remote.living_room
+#        activity: 'TV'
+#    turn_off:
+#      service: remote.turn_on
+#      data:
+#        entity_id: remote.living_room
+#        activity: 'PowerOff'

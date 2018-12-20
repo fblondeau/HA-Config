@@ -1,0 +1,29 @@
+configurator:
+  title: Configurator
+  icon: mdi:wrench
+  url: !secret configuratorHost
+
+portainer:
+  title: Portainer
+  icon: mdi:docker
+  url: !secret protainerHost
+
+# zwave:
+#   title: Z-Wave
+#   icon: mdi:z-wave
+#   url: !secret zwaveHost
+#
+# hacore:
+#   title: HA Core
+#   icon: mdi:engine
+#   url: !secret hacoreHost
+#
+# forlovel:
+#   title: Go To lovelace
+#   icon: mdi:clover
+#   url: !secret lovelaceHost
+#
+# states:
+#     title: States
+#     icon: mdi:home-assistant
+#     url: http://hassio.local:8123/states

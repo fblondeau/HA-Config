@@ -1,3 +1,6 @@
 [submodule "www/cardtool"]
 	path = www/cardtool
 	url = https://github.com/thomasloven/lovelace-card-tools.git
+[submodule "www/layout-card"]
+	path = www/layout-card
+	url = https://github.com/thomasloven/lovelace-layout-card
